@@ -15,5 +15,9 @@
       "react/prefer-stateless-function": "off",
       "no-multiple-empty-lines": "off",
       "no-unused-vars": "warn",
+      "react/no-unescaped-entities": "off",
+      "react/no-unused-state": "off",
+      "no-trailing-spaces": "off",
+      "padded-blocks": "off"
     }
 }
