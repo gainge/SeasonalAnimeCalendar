@@ -18,6 +18,9 @@
       "react/no-unescaped-entities": "off",
       "react/no-unused-state": "off",
       "no-trailing-spaces": "off",
-      "padded-blocks": "off"
+      "padded-blocks": "off",
+      "comma-dangle": "off",
+      "react/destructuring-assignment": "off",
+      "no-else-return": "off"
     }
 }
