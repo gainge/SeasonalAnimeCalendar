@@ -1,0 +1,76 @@
+
+
+.card {
+    position: relative;
+    background-position-y: 70%;
+    background-position-x: center;
+    min-height: 10rem;
+    overflow: hidden;
+    transition: background-size 0.2s;
+    text-align: center;
+
+    background-size: 100%;
+
+    border-bottom: solid 1px black;
+
+    justify-content: flex-end;
+}
+
+
+.card:hover {
+    background-size: 105%;
+}
+
+
+.card-content {
+    position: absolute;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-image: linear-gradient(transparent, transparent);
+    
+    transition: background-size 0.1s;
+}
+
+.card:hover .card-content {
+    background-image: linear-gradient(transparent, #0005);
+}
+
+.card:hover .card-content a {
+    display: inline;
+}
+
+.card-content a {
+    display: none;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    position: absolute;
+    width: 100%;
+    bottom: 0;    
+    left: 0;
+    text-align: center;
+}
+
+.card-content a:visited {
+    color: white;
+}
+
+/* .card-content::before {
+    content: "";
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(52, 73, 94, 0.75);
+}
+
+.card:hover .card-content:before,
+.card:focus .card-content:before {
+  display: block;
+} */
+

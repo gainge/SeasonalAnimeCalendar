@@ -1,0 +1,13 @@
+h1.week-banner {
+    width: 100%;
+    text-align: center;
+    background-color: azure;
+    font-size: 3em;
+}
+
+.week-wrapper {
+    display: flex;
+    margin-bottom: 5rem;
+}
+
+

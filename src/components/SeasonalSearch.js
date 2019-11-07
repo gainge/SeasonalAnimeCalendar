@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 
-import { faSearch, faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import ReactModal from 'react-modal';
 
 import './SeasonalSearch.css';
+
+
+import ErrorModal from './ErrorModal';
 
 // Might want to refactor these into a helper module at some point
 const QUERY_IDLE = 0;
@@ -16,7 +18,7 @@ query ($userName: String) {
   MediaListCollection(
     userName: $userName, 
     type: ANIME,
-    status_in: [CURRENT, COMPLETED],
+    status_in: [CURRENT],
     sort: MEDIA_ID
     ) {
     lists {
@@ -38,21 +40,6 @@ query ($userName: String) {
   }
 }
 `
-
-ReactModal.setAppElement('#root');
-
-const customStyles = {
-  overlay: {
-    backgroundColor: 'transparent',
-    padding: 100,
-  },
-  content: {
-    position: 'relative',
-    color: 'red',
-    boxShadow: '1px 3px 3px #9E9E9E',
-    backgroundColor: '#f8f8f8',
-  }
-};
 
 export default class SeasonalSearch extends Component {
 
@@ -92,7 +79,8 @@ export default class SeasonalSearch extends Component {
   }
 
   handleResponse = (response) => {
-    return response.json().then((json) => (response.ok ? json : Promise.reject(json)));
+    console.log(response);
+    return response.json().then((json) => (response.ok ? json : Promise.reject(json)))
   }
 
   handleData = (data) => {
@@ -115,11 +103,12 @@ export default class SeasonalSearch extends Component {
   onQuerySuccess = (data) => {
     // Pass back up the shows
     // but we'll probably just log for now
-    console.log(data);
+    this.props.onResult(data);
   }
 
   onQueryError = (error) => {
-    this.setState({ queryState: QUERY_ERROR, error });
+    console.log(error);
+    this.setState({ queryState: QUERY_ERROR, error: 'Something pretty yikes happened... check console' });
   }
 
   onSearchTermChange = (event) => {
@@ -153,15 +142,15 @@ export default class SeasonalSearch extends Component {
           </button>
           <input type="text" value={this.state.searchTerm} onChange={this.onSearchTermChange} id="search-field" placeholder="Anlilist Username" />
         </form>
-        <ReactModal 
+
+
+
+
+        <ErrorModal 
           isOpen={this.state.queryState === QUERY_ERROR} 
-          onRequestClose={this.onCloseModal}
-          style={{ overlay: customStyles.overlay, content: customStyles.content }}
-          contentLabel="Example Modal"
-        >
-          <FontAwesomeIcon icon={faTimes} size="2x" style={{ color: 'slate', float: 'right' }} onClick={this.onCloseModal} />
-          <p>{this.state.error}</p>
-        </ReactModal>
+          onCloseModal={this.onCloseModal}
+          errorMessage={this.state.error}
+        />
         
       </div>
       

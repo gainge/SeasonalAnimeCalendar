@@ -1,0 +1,37 @@
+
+.tile {
+    flex: 1 1 0px;
+    border: solid 1px black;
+    border-radius: 0.2rem;
+    margin: 0rem 0.1rem;
+    overflow: hidden;
+    box-shadow: 1px 3px 3px #9E9E9E44;
+    transition: box-shadow 0.2s;
+}
+
+.tile:hover {
+    box-shadow: 2px 4px 4px #9E9E9Edd;
+}
+
+.current {
+    background-color: lightgreen;
+}
+
+.standard {
+    background-color: lightsteelblue;
+}
+
+.show-container {
+    /* padding: 0.1rem; */
+    overflow: hidden;
+}
+
+
+.day-title {
+    font-size: 1rem;
+    text-align: center;
+    border-bottom: solid 1px black;
+    margin: 0;
+    padding: 0.5rem 1rem;
+}
+
