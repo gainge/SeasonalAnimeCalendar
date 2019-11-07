@@ -11,5 +11,9 @@
     "rules": {
       "react/jsx-filename-extension": "off",
       "react/jsx-one-expression-per-line": "off",
+      "semi": "off",
+      "react/prefer-stateless-function": "off",
+      "no-multiple-empty-lines": "off",
+      "no-unused-vars": "warn",
     }
 }
