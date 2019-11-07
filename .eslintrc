@@ -26,6 +26,9 @@
       "comma-dangle": "off",
       "react/destructuring-assignment": "off",
       "no-else-return": "off",
-      "arrow-parens": "off"
+      "arrow-parens": "off",
+      "prefer-const": "warn",
+      "prefer-destructuring": "warn",
+      "react/prop-types": "off"
     }
 }
