@@ -21,6 +21,8 @@ export default class Home extends Component {
 
 
   fetchSeasonalAnime = () => {
+    if (this.state.seasonal.length) return; // Don't do extra work
+
     fetch('https://api.jikan.moe/v3/season/2019/fall')
       .then(res => res.json())
       .then(
@@ -54,12 +56,8 @@ export default class Home extends Component {
     let pageContent;
     // eslint-disable-next-line no-constant-condition
     // eslint-disable-next-line no-mixed-operators
-    if (true || this.state.viewing.length && this.state.seasonal.length) {
-      console.log(this.state.seasonal);
-      console.log(this.state.viewing);
+    if (this.state.viewing.length && this.state.seasonal.length) {
       pageContent = <WeeklyReleaseSchedule seasonal={this.state.seasonal} viewing={this.state.viewing} />
-    } else {
-      pageContent = <SeasonalSearch onResult={this.onSearchResults} />
     }
 
     return (
@@ -68,7 +66,9 @@ export default class Home extends Component {
           <h1>Seasonal Anime</h1>
           <h3>{this.state.seasonTitle}</h3>
         </div>
+        <SeasonalSearch onResult={this.onSearchResults} />
         {pageContent}
+
         <ErrorModal 
           isOpen={this.state.error}
           onCloseModal={this.onCloseModal}
