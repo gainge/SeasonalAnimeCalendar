@@ -19,7 +19,6 @@ export default class Home extends Component {
     }
   }
 
-
   fetchSeasonalAnime = () => {
     if (this.state.seasonal.length) return; // Don't do extra work
 
@@ -54,8 +53,6 @@ export default class Home extends Component {
   render() {
     // determine what content will be shown on the page
     let pageContent;
-    // eslint-disable-next-line no-constant-condition
-    // eslint-disable-next-line no-mixed-operators
     if (this.state.viewing.length && this.state.seasonal.length) {
       pageContent = <WeeklyReleaseSchedule seasonal={this.state.seasonal} viewing={this.state.viewing} />
     }

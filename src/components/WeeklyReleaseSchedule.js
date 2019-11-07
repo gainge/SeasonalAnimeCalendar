@@ -46,9 +46,9 @@ function WeeklyReleaseSchedule(props) {
     }
   })
 
-  console.log(weeklyShows);
-
   weeklyShows.sort((a, b) => ((a.startDate.getDay() < b.startDate.getDay()) ? -1 : 1));
+
+  console.log(weeklyShows);
 
   // Now it's up to us to write out a cool table or something?
   const showDistribution = []
