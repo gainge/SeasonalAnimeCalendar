@@ -5,6 +5,10 @@
         "plugin:react/recommended",
         "airbnb"
     ],
+    // important for things like document and fetch
+    "env": {
+      "browser": true
+    },
     "plugins": [
       "react"
     ],
@@ -21,6 +25,7 @@
       "padded-blocks": "off",
       "comma-dangle": "off",
       "react/destructuring-assignment": "off",
-      "no-else-return": "off"
+      "no-else-return": "off",
+      "arrow-parens": "off"
     }
 }
